@@ -82,7 +82,7 @@ fi
 
 # Restrict sender adresses to only theses of the relay domain
 if [ "$RELAY_STRICT_SENDER_MYDOMAIN" = 'true' ]; then
-  postconf -e "smtpd_sender_restrictions = check_sender_access inline:{$RELAY_MYDOMAIN=OK}, reject"
+  postconf -e "smtpd_sender_restrictions = check_sender_access inline:{$RELAY_MYDOMAIN=OK}, permit_sasl_authenticated, reject"
 fi
 
 # set extras configurations
